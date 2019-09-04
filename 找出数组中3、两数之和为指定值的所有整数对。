@@ -1,0 +1,35 @@
+import java.util.*;
+public class FindPair
+{
+    public int countPairs(int[] A, int n, int sum)
+    {
+        int left=0;
+        int right=n-1;
+        int count=0;
+        if(A==null||A.length<=1)
+        {
+            System.out.println("input error");
+            return -1;
+         }
+        Arrays.sort(A);
+        while(left<right)
+        {
+            if(A[left]+A[right]>sum)
+            {
+                right--;
+            }
+            else if(A[left]+A[right]<sum)
+            {
+                left++;
+            }
+            else
+            {
+                System.out.println(A[left]+"+"+A[right]+"="+sum);
+                count++;
+                left++;
+                right--;
+            }
+        }
+        return count;
+    }
+}
