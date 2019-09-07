@@ -1,0 +1,30 @@
+import java.util.*;
+public class StringRotation 
+{
+    public static String A;
+    public   String rotateString(String A, int i, int p) 
+    {
+        
+        if(A==null||i<0||(A.length()<i))
+        {
+            System.out.println(A);
+        }
+        char [] ch=A.toCharArray();
+        reverse(ch,0,i);
+        reverse(ch,i+1,ch.length-1);
+        reverse(ch,0,ch.length-1);
+        return new String(ch);
+    }
+    public static void reverse(char[] ch,int begin,int end)
+    {
+        char temp;
+        while(begin<end)
+        {
+            temp=ch[begin];
+            ch[begin]=ch[end];
+            ch[end]=temp;
+            begin++;
+            end--;
+        }
+    }
+}
