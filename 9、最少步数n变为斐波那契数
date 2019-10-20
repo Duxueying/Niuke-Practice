@@ -1,0 +1,35 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        int k=input.nextInt();
+        System.out.println(getStep(k));
+    }
+    public static int getStep(int k)
+    {
+        int num = 0;
+        for (num = 2; Fib(num) > k; num++) {
+            if (Fib(num) > k) {
+                int b = k - Fib(num - 1);
+                int c = Fib(num) - k;
+                if (b > c) {
+                    return c;
+                } else if (b < c) {
+                    return b;
+                } else {
+                    return 0;
+                }
+            }
+        }
+        return 0;
+    }
+    public static int Fib(int n){
+        if(n==0){
+            return 0;
+        }else if(n==1){
+            return 1;
+        }else{
+            return Fib(n-1)+Fib(n-2);
+        }
+    }
+}
