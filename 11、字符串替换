@@ -1,0 +1,27 @@
+import java.util.*;
+import java.lang.String;
+import java.util.Arrays;
+public class StringFormat {
+    public static  String formatString(String A, int n, char[] arg, int m) {
+            StringBuilder sb = new StringBuilder();
+            int j = 0;
+            for (int i = 0; i < A.length(); ++i) {
+                if (A.charAt(i) == '%') { //返回指定索引处的字符
+                    sb.append(arg[j++]);
+                    i++;
+                } else {
+                    sb.append(A.charAt(i)); //创建一个新的数组，扩大了长度
+                }
+            }
+            while (j < m) {
+                sb.append(arg[j++]);
+            }
+            return sb.toString();//将你要显示的内容以字符串形式显示
+        }
+    public static void main(String[] args) {
+       //将字符串对象中的字符转换为一个字符数组
+        String A="A%sC%sE";
+        char[] arg={'B','D','F'};
+        System.out.println(formatString("A%sC%sE",5,arg,3));
+    }
+}
