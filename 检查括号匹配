@@ -1,0 +1,32 @@
+import java.util.*;
+public class chk{
+    public boolean chk(String A, int n) {
+        Stack st = new Stack();
+        for(int i = 0; i < n; i++){
+            String str = String.valueOf(A.charAt(i));
+            if("(".equals(str)){
+                st.push(str);
+            }else if(")".equals(str)){
+                if(st.isEmpty()){
+                    return false;
+                }
+                String p = (String) st.peek();
+                if("(".equals(p)){
+                    st.pop();
+                }else{
+                    return false;
+                }
+            }else{
+                continue;
+            }
+        }
+        if(st.isEmpty()){
+            return true;
+        }
+        return false;
+    }
+
+    public static void main(String[] args) {
+
+    }
+}
