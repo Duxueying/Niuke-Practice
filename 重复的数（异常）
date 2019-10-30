@@ -1,0 +1,18 @@
+import java.util.*;
+import java.io.*;
+public class FindSame{
+    public static void main(String[]args)throws Exception{
+        InputStreamReader ir=new InputStreamReader(System.in);
+        BufferedReader br=new BufferedReader(ir);
+        String[] str=br.readLine().split(" ");
+        Set<String> set=new HashSet<>();
+        for(int i=0;i<str.length;i++){
+            if(!set.contains(str[i])){
+                set.add(str[i]);
+            }else{
+                System.out.println(str[i]);
+                break;
+            }
+        }
+    }
+}
