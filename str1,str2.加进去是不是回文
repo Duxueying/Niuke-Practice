@@ -1,0 +1,31 @@
+import java.util.*;
+public class Main {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        String A=input.nextLine();
+        String B=input.nextLine();
+        int count=0;
+        for(int i=0;i<=A.length();i++){
+            StringBuffer str=new StringBuffer(A);
+            str.insert(i,B);
+            if(huiwen(str)){
+                count++;
+            }
+        }
+        System.out.println(count);
+    }
+
+    private static boolean huiwen(StringBuffer str) {
+        String arr=str.toString() ;
+        char[]array=arr.toCharArray();
+        int a=0,b=array.length-1;
+        while(a<b){
+            if(array[a]!=array[b]){
+                return false;
+            }
+            a++;
+            b--;
+        }
+        return true;
+    }
+}
