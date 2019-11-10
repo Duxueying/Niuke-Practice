@@ -1,0 +1,17 @@
+import java.lang.StringBuffer;
+import java.util.Scanner;
+public class Main{
+    public static void main(String[] args){
+        Scanner input =new Scanner(System.in);
+        
+        String Mon=input.nextLine();
+        String Son=input.nextLine();
+        StringBuffer str=new StringBuffer();
+        for(int i=0;i<Mon.length();i++){
+             if(Son.indexOf(Mon.charAt(i)) == -1){
+                str.append(Mon.charAt(i));
+            }
+        }
+        System.out.println(str.toString());
+    }
+}
