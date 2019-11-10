@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String []args) {
+        Scanner input=new Scanner(System.in);
+        int n=input.nextInt();
+        int s=-1;
+        for(int i=n/8;i>=0;i--){
+            if((n-i*8)%6==0){
+                s=(n-8*i)/6+i;
+                System.out.println(s);
+                break;
+            }
+        }
+        if(s<0){
+            System.out.println(s);
+        }
+    }
+}
