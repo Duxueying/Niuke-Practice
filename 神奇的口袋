@@ -1,0 +1,18 @@
+import java.util.Scanner;
+public class Main{
+    static int n=1;
+    static int[] a =new int[21];
+    public static int di(int i,int sum){
+        if(sum==0) return 1;
+        if(i==n||sum<0) return 0;
+        return di(i+1,sum-a[i])+di(i+1,sum);
+    }
+    public static void main(String[] args){
+        Scanner s =new Scanner(System.in);
+        n =s.nextInt();
+       for(int i=0;i<n;i++){
+           a[i]=s.nextInt();
+       }
+        System.out.println(di(0,40));
+    }
+}
