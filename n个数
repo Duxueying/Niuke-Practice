@@ -1,0 +1,22 @@
+import java.util.Scanner;
+import java.lang.String;
+public class Main
+{
+    public static void main(String[] args) 
+    {
+        Scanner input=new Scanner(System.in);
+        String[] s = input.nextLine().split(" ");
+        int n = s.length;
+        int[] count = new int[100];
+        for (int i = 0; i < n; i ++)
+        {
+            int temp = Integer.valueOf(s[i]);
+            count[temp]++;
+            if (count[temp] >= n / 2)
+            {
+                System.out.println(temp);
+                break;
+            }
+        }
+    }
+}
