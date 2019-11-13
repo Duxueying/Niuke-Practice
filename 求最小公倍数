@@ -1,0 +1,30 @@
+import java.util.*;
+public class Main {
+ 
+    public static void main(String[] args) {
+    Scanner s=new Scanner(System.in);
+    while(s.hasNext()){
+        int n1=s.nextInt();
+        int n2=s.nextInt();
+        int n3=n1*n2;
+        int n4=n3/cc(n1,n2);
+        System.out.println(n4);
+    }
+    }
+    public static int cc(int n1,int n2){
+        if(n1<n2){
+            int temp=n1;
+            n1=n2;
+            n2=temp;
+        }
+        int d=0;
+        while(n2!=0){
+            int k=n1%n2;
+            n1=n2;
+            n2=k;
+             
+        }
+        return n1;
+    }
+ 
+}
