@@ -1,0 +1,26 @@
+import java.io.*;
+import java.util.Scanner;
+public class Main {
+    
+    public static void main(String[] args) throws IOException {
+        Scanner input=new Scanner(System.in);
+        String[] s1 = input.nextLine().split(" ");
+        int length = s1.length - 1;
+        int num = Integer.parseInt(s1[length]);
+        for(int i = 0;i<length;i++){
+           for(int j = 0;j<length-1;j++){
+               if(Integer.parseInt(s1[i])<Integer.parseInt(s1[j])){
+                   String temp = s1[i];
+                   s1[i] = s1[j];
+                   s1[j] = temp;
+               }
+           }
+        }
+        for(int i = 0;i<num;i++){
+            System.out.print(s1[i]);
+            if(i!=num-1){
+                System.out.print(" ");
+            }
+        }
+    }
+}
