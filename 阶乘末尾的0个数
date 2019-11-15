@@ -1,0 +1,16 @@
+import java.util.Scanner;
+public class Main{
+    public static void main(String args[]) {
+        Scanner input=new Scanner(System.in);
+        int num=input.nextInt();
+        System.out.print(solution(num));
+    }
+    public static int solution(int n) {
+        int ret = 0;
+        while(n!=0) {
+            ret += n/5;
+            n = n/5;
+        }
+        return ret;
+    }
+}
