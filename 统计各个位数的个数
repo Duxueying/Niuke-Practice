@@ -1,0 +1,17 @@
+import java.util.Scanner;
+public class Solution {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        String str=input.nextLine();
+        int[] count=new int[10];
+        for(int i=0;i<str.length();i++){
+            char c=str.charAt(i);
+            count[c-'0']++;
+        }
+        for(int i=0;i<count.length;i++){
+            if(count[i]!=0){
+                System.out.println(i+":"+count[i]);
+            }
+        }
+    }
+}
