@@ -1,0 +1,14 @@
+import java.util.Scanner;
+import java.math.BigInteger;
+public class day_11_20 {
+    public static void main(String[] args) {
+        Scanner input=new Scanner(System.in);
+        String line =input.nextLine();
+        while((line.trim())!=null){
+        //trim方法删除字符串两侧的空白字符或其他预定义字符
+            BigInteger b1 = new BigInteger(line);
+            BigInteger b2 = new BigInteger(input.nextLine().trim());
+            System.out.println(b1.add(b2).toString());
+        }
+    }
+}
