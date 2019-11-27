@@ -1,0 +1,20 @@
+import java.util.*;
+public class Gift {
+    public int getValue(int[] gifts, int n) {
+        int count=1;
+        int key=0;
+        for(int i=0;i<n;i++){
+            count=1;
+            for(int j=0;j<n;j++){
+                if(gifts[i]==gifts[j]){
+                    count++;
+                }
+            }
+            if(count>n/2){
+                key=gifts[i];
+                break;
+            }
+        }
+        return key;
+    }
+}
