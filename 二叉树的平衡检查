@@ -1,0 +1,28 @@
+import java.util.*;
+
+/*
+public class TreeNode {
+    int val = 0;
+    TreeNode left = null;
+    TreeNode right = null;
+    public TreeNode(int val) {
+        this.val = val;
+    }
+}*/
+public class Balance {
+    public boolean isBalance(TreeNode root) {
+        return get(root)!=-1;
+        // write code here
+    }
+    public static int get(TreeNode root){
+        if(root==null){
+            return 0;
+        }
+        int left=get(root.left);
+        int right=get(root.right);
+        if(left==-1||right==-1||Math.abs(left-right)>1){
+            return -1;
+        }
+        return Math.max(left,right)+1;
+    }
+}
