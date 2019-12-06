@@ -1,0 +1,21 @@
+public class Solution {
+   public static void main(String[] args) {
+ 
+    }
+ 
+    public String LeftRotateString(String str, int n) {
+        if (str == null || str.length() == 0) {
+            str = "";
+        }
+        else if (n % (str.length()) == 0) { // 不变
+ 
+        } else {
+            int count = n % (str.length());
+            StringBuffer buffer = new StringBuffer();
+            buffer.append(str.substring(count));
+            buffer.append(str.substring(0, count));
+            str = buffer.toString();
+        }
+        return str;
+    }
+}
