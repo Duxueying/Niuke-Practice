@@ -1,0 +1,84 @@
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.util.*;
+  
+public class Main{
+    public static void main(String[] args) throws IOException{
+        BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+        String[] ss = reader.readLine().split(" ");
+        int n = Integer.parseInt(ss[0]);
+        int root = Integer.parseInt(ss[1]);
+        int[][] a = new int[n+1][2];
+        int t;
+        for (int i=0;i<n;i++){
+            String string = reader.readLine();
+            if (string == null)
+                break;
+            String[] sts = string.split(" ");
+            t = Integer.parseInt(sts[0]);
+            a[t][0] = Integer.parseInt(sts[1]);
+            a[t][1] = Integer.parseInt(sts[2]);
+        }
+        reader.close();
+        TreeNode rootNode = new TreeNode(root);
+        createTree(rootNode,a);
+        System.out.println(preSerialize(rootNode));
+        System.out.println(levelSerialize(rootNode));
+    }
+      
+    private static String preSerialize(TreeNode node){
+        if (node == null)
+            return "#!";
+        return node.val+"!"+preSerialize(node.left)+preSerialize(node.right);
+    }
+      
+    private static String levelSerialize(TreeNode root){
+        if (root == null)
+            return "#!";
+        Queue<TreeNode> queue = new LinkedList<>();
+        queue.offer(root);
+        StringBuilder builder = new StringBuilder();
+        while (!queue.isEmpty()){
+            TreeNode node = queue.poll();
+            if (node == null)
+                builder.append("#!");
+            else{
+                builder.append(node.val).append("!");
+                queue.offer(node.left);
+                queue.offer(node.right);
+            }
+        }
+        return builder.toString();
+    }
+      
+    private static void createTree(TreeNode root,int[][] a){
+        if (root == null)
+            return;
+        int i = root.val;
+        int l = a[i][0];
+        int r = a[i][1];
+        if (l != 0){
+            TreeNode leftNode = new TreeNode(l);
+            root.left = leftNode;
+            leftNode.parent = root;
+            createTree(leftNode,a);
+        }
+        if (r != 0){
+            TreeNode rightNode = new TreeNode(r);
+            root.right = rightNode;
+            rightNode.parent = root;
+            createTree(rightNode,a);
+        }
+    }
+      
+    private static class TreeNode{
+        int val;
+        TreeNode parent;
+        TreeNode left;
+        TreeNode right;
+        TreeNode(int val){
+            this.val = val;
+        }
+    }
+}
