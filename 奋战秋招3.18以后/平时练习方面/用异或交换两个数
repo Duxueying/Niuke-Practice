@@ -1,0 +1,13 @@
+import java.util.Scanner;
+public class Exchange {
+    public static void main(String[] args) {
+        Scanner scan=new Scanner(System.in);
+        System.out.println("请输入A、B变量的值");
+        long A=scan.nextLong();
+        long B=scan.nextLong();
+        A=A^B;
+        B=B^A;
+        A=A^B;
+        System.out.printf("A=%d,B=%d",A,B);
+    }    
+}
