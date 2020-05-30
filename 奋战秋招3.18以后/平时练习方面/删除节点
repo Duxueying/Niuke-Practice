@@ -1,0 +1,19 @@
+import.java.util.*;
+/*
+public class ListNode {
+    int val;
+    ListNode next = null;
+
+    ListNode(int val) {
+        this.val = val;
+    }
+}*/
+public class ListNode {
+    public boolean removeNode(ListNode pNode) {
+        // write code here
+        ListNode newNode = pNode;
+        pNode = pNode.next;
+        if(newNode.next==null) return false;
+        else return true;
+    }
+}
